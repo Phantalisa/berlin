@@ -10,6 +10,11 @@
     --nav-hover: rgba(213, 166, 198, 0.2); /* Soft pink hover */
     --dropdown-shadow: rgba(0, 0, 0, 0.15);
     
+    /* Diagonal Background */
+    --bg-color-1: #f8f6fc; /* Left side (same as dark-purple) */
+    --bg-color-2: #f0ecf7; /* Right side (slightly darker) */
+    --diagonal-angle: 135deg; /* Diagonal angle (top-left to bottom-right) */
+    
     /* Animation */
     --animation-duration: 0.6s;
     --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);

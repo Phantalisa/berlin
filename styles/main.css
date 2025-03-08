@@ -9,7 +9,13 @@ body {
     font-family: var(--font-family);
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--dark-purple);
+    background: linear-gradient(
+        var(--diagonal-angle), 
+        var(--bg-color-1) 0%, 
+        var(--bg-color-1) 50%, 
+        var(--bg-color-2) 50%, 
+        var(--bg-color-2) 100%
+    );
     position: relative;
     overflow-x: hidden;
 }
@@ -127,11 +133,6 @@ header {
     background: var(--nav-hover);
 }
 
-/* Search icon */
-.search-icon svg {
-    vertical-align: middle;
-}
-
 /* Hero section */
 .hero {
     display: flex;
@@ -222,30 +223,6 @@ header {
     gap: 6rem;
 }
 
-.opening-hours h2 {
-    color: var(--text-dark);
-    font-size: 3rem;
-    margin-bottom: 2.5rem;
-}
-
-.hours-list {
-    list-style: none;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-}
-
-.hours-list li {
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.hours-list .note {
-    font-size: 1rem;
-    font-style: italic;
-    opacity: 0.9;
-    margin: 0.5rem 0 1.5rem 1rem;
-}
-
 .hours-content {
     flex: 1;
 }
@@ -255,33 +232,33 @@ header {
     margin-bottom: 2rem;
     text-transform: uppercase;
     font-weight: bold;
+    color: var(--text-white);
+}
+
+.hours-content h3 {
+    color: var(--text-white);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hours-content p {
+    color: var(--text-white);
 }
 
 .hours-list {
     list-style: none;
     font-size: 1.1rem;
+    color: var(--text-white);
 }
 
 .hours-list li {
     margin-bottom: 0.75rem;
 }
 
-.hours-list .note {
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-top: -0.25rem;
-    margin-bottom: 1rem;
-}
-
 .hours-image {
     flex: 1;
     display: flex;
     justify-content: center;
-}
-
-.hours-image img {
-    max-width: 100%;
-    height: auto;
 }
 
 /* Content page styles */
@@ -360,6 +337,78 @@ header {
     transform: translateY(-5px) rotate(5deg) !important;
 }
 
+/* Text styling classes */
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--bg-dark-purple);
+    padding: 2rem 0; 
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-column a:hover {
+    color: var(--accent-pink);
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
