@@ -1,0 +1,20 @@
+:root {
+    /* Colors */
+    --primary-purple: #E6CEFF;
+    --accent-orange: #FF8A00;
+    --text-dark: #333333;
+    --bg-white: #FFFFFF;
+    --button-beige: #FFE0B2;
+    --nav-hover: #F5F5F5;
+    --dropdown-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Spacing */
+    --container-padding: 2rem;
+    --section-spacing: 4rem;
+    
+    /* Typography */
+    --font-family: 'Arial', sans-serif;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}

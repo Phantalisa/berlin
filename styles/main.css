@@ -1,0 +1,262 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: var(--bg-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem var(--container-padding);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo {
+    margin-right: 2rem;
+}
+
+.logo img {
+    display: block;
+    background: #000;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 0.5rem;
+    transition: background-color var(--transition-speed);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-orange);
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-white);
+    min-width: 200px;
+    box-shadow: 0 2px 8px var(--dropdown-shadow);
+    list-style: none;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.75rem 1rem;
+}
+
+.dropdown-content a:hover {
+    background: var(--nav-hover);
+}
+
+/* Search icon */
+.search-icon svg {
+    vertical-align: middle;
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: var(--section-spacing) var(--container-padding);
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero p a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--button-beige);
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color var(--transition-speed);
+}
+
+.cta-button:hover {
+    background: darken(var(--button-beige), 5%);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Opening hours section */
+.opening-hours {
+    background: var(--primary-purple);
+    padding: var(--section-spacing) var(--container-padding);
+}
+
+.opening-hours > div {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 6rem;
+}
+
+.opening-hours h2 {
+    color: var(--text-dark);
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.hours-list {
+    list-style: none;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.hours-list li {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.hours-list .note {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin: 0.5rem 0 1.5rem 1rem;
+}
+
+.hours-content {
+    flex: 1;
+}
+
+.hours-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.hours-list {
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+.hours-list li {
+    margin-bottom: 0.75rem;
+}
+
+.hours-list .note {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+}
+
+.hours-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hours-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Content page styles */
+.content-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--section-spacing) var(--container-padding);
+}
+
+.content-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.content-page section {
+    margin-bottom: 3rem;
+}
+
+.content-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.content-page h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-dark);
+}
+
+.content-page p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
