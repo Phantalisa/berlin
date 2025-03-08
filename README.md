@@ -1,6 +1,6 @@
 # BDP Mädchen*treff Berlin Spandau Website
 
-Diese Website wurde für den BDP Mädchen*treff in Berlin Spandau erstellt. Die Struktur ist bewusst einfach gehalten, damit die Website leicht zu warten und zu aktualisieren ist.
+Diese Website wurde für den BDP Mädchen*treff in Berlin Spandau erstellt. Die Struktur ist nun mit wiederverwendbaren Komponenten gestaltet, damit die Website leicht zu warten und zu aktualisieren ist.
 
 ## Dateistruktur
 
@@ -8,10 +8,17 @@ Diese Website wurde für den BDP Mädchen*treff in Berlin Spandau erstellt. Die 
 maedchentreff/
 ├── index.html                 # Startseite
 ├── impressum.html             # Impressum
+├── components/                # Wiederverwendbare Komponenten
+│   ├── header.html            # Header mit Navigation
+│   ├── footer.html            # Footer
+│   └── meta.html              # <head> Inhalte (Meta-Tags, CSS)
+├── js/
+│   └── component-loader.js    # Script zum Laden der Komponenten
 ├── images/                    # Bilder-Verzeichnis
 ├── styles/                    # CSS-Dateien
 │   ├── variables.css          # CSS-Variablen (Farben, Fonts, etc.)
-│   └── main.css               # Haupt-Stylesheet
+│   ├── main.css               # Haupt-Stylesheet
+│   └── flyer-elements.css     # Spezielle Design-Elemente
 └── pages/                     # Unterseiten
     ├── maedchentreff.html     # Über den Mädchentreff
     ├── u16-wahlen.html        # Infos zu U16-Wahlen
@@ -22,57 +29,87 @@ maedchentreff/
     └── frauenberatungsstellen.html # Beratungsstellen-Liste
 ```
 
+## Komponenten-System
+
+Die Website verwendet ein einfaches Komponenten-System für gemeinsam genutzte Elemente:
+
+1. **Komponenten**: Wiederverwendbare HTML-Fragmente in `/components/`:
+   - `header.html`: Navigation
+   - `footer.html`: Footer
+   - `meta.html`: Meta-Tags und CSS-Links
+
+2. **Component Loader**: Das JavaScript unter `js/component-loader.js` lädt diese Komponenten dynamisch.
+
 ## Wie man die Website aktualisiert
 
 ### Bearbeiten vorhandener Seiten
 
 1. Öffne die HTML-Datei, die du bearbeiten möchtest, in einem Text-Editor.
-2. Suche den Bereich, den du ändern möchtest. Der HTML-Code ist mit Kommentaren versehen, die dir helfen, die verschiedenen Abschnitte zu finden.
-3. Nimm deine Änderungen vor und speichere die Datei.
-4. Öffne die Seite in einem Browser, um deine Änderungen zu überprüfen.
+2. Der Inhalt der Seite befindet sich im `<main>` Bereich - bearbeite nur diesen Teil.
+3. Die Navigation, Header und Footer sind jetzt Komponenten und müssen nur einmal aktualisiert werden.
+4. Speichere die Datei und teste die Änderungen in einem Browser.
+
+### Aktualisieren der Navigation
+
+1. Öffne die Datei `components/header.html`.
+2. Bearbeite die Navigation im `<nav class="main-nav">` Bereich.
+3. Da die Navigation dynamisch in jede Seite geladen wird, musst du die Änderungen nur einmal vornehmen.
 
 ### Erstellen einer neuen Seite
 
-1. Kopiere eine bestehende Seite, die der neuen Seite am ähnlichsten ist (z.B. aus dem Verzeichnis `pages/`).
-2. Benenne die Kopie um und speichere sie im `pages/`-Verzeichnis.
-3. Passe den Inhalt der Seite an (Titel, Überschriften, Text, etc.).
-4. Füge einen Link zur neuen Seite in die Navigation aller anderen Seiten ein:
-   - In der `index.html` und `impressum.html` Datei
-   - In allen Dateien im `pages/`-Verzeichnis
-
-### Navigation aktualisieren
-
-Die Navigation befindet sich im `<header>`-Bereich jeder HTML-Datei. Um einen neuen Menüpunkt hinzuzufügen, füge einen neuen `<li>`-Eintrag hinzu:
+1. Kopiere eine bestehende Seite, die der neuen Seite am ähnlichsten ist.
+2. Behalte die Komponenten-Struktur bei:
 
 ```html
-<li><a href="pfad/zur/neuen-seite.html">Neuer Menüpunkt</a></li>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <div data-include="../components/meta.html"></div>
+</head>
+<body>
+    <div data-include="../components/header.html"></div>
+
+    <main class="content-page" data-page-title="Seitentitel - MÄDCHEN*TREFF">
+        <!-- Seiteninhalt hier -->
+    </main>
+
+    <div data-include="../components/footer.html"></div>
+    <script src="../js/component-loader.js"></script>
+</body>
+</html>
 ```
 
-Für ein Dropdown-Menü:
+3. Bearbeite den Inhalt im `<main>` Bereich.
+4. Füge einen Eintrag zur Navigation in `components/header.html` hinzu.
+
+## Wichtig: Seitentitel definieren
+
+Jede Seite kann ihren eigenen Titel haben, indem du das Attribut `data-page-title` im `<main>` Element setzt:
 
 ```html
-<li class="dropdown">
-    <a href="#">Dropdown-Titel</a>
-    <ul class="dropdown-content">
-        <li><a href="pfad/zur/neuen-seite.html">Neuer Unterpunkt</a></li>
-    </ul>
-</li>
+<main data-page-title="Mein Seitentitel - MÄDCHEN*TREFF">
 ```
 
-### Styling anpassen
+## GitHub Pages Deployment
 
-- Farben, Schriftarten und andere grundlegende Stilelemente sind in `styles/variables.css` definiert.
-- Layout und detaillierte Stile sind in `styles/main.css` definiert.
+Diese Website kann direkt über GitHub Pages veröffentlicht werden:
 
-## Wichtig: Pfade zu Dateien
+1. Lade die Dateien in ein GitHub Repository hoch
+2. Aktiviere GitHub Pages in den Repository-Einstellungen 
+3. Wähle als Quelle den `main` Branch aus
+4. Die Website ist dann unter `https://[dein-username].github.io/[repository-name]/` erreichbar
 
-- Verwende relative Pfade für Links innerhalb der Website:
-  - Von Hauptverzeichnis zu Hauptverzeichnis: `impressum.html`
-  - Von Hauptverzeichnis zu Unterseite: `pages/maedchentreff.html` 
-  - Von Unterseite zu Hauptverzeichnis: `../index.html`
-  - Von Unterseite zu Unterseite: `aktivitaeten.html` (wenn in gleichem Verzeichnis)
-  - Zu CSS-Dateien von Hauptverzeichnis: `styles/main.css`
-  - Zu CSS-Dateien von Unterseiten: `../styles/main.css`
+## Lokales Testen
+
+Beim Testen der Website lokal sollte ein einfacher Webserver verwendet werden, damit die Komponenten korrekt geladen werden:
+
+```
+# Mit Python (empfohlen)
+python -m http.server
+
+# Oder mit Node.js
+npx serve
+```
 
 ## Kontakt für technische Unterstützung
 

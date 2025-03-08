@@ -1,12 +1,18 @@
 :root {
-    /* Colors */
-    --primary-purple: #E6CEFF;
-    --accent-orange: #FF8A00;
-    --text-dark: #333333;
+    /* Colors - Modern updated palette */
+    --primary-purple: #8a7aad; /* Muted purple */
+    --dark-purple: #f8f6fc; /* Very light lavender background */
+    --accent-pink: #d5a6c6; /* Soft pink */
+    --text-dark: #333333; /* Dark charcoal */
+    --text-white: #333333; /* Changed to dark for better contrast with light bg */
     --bg-white: #FFFFFF;
-    --button-beige: #FFE0B2;
-    --nav-hover: #F5F5F5;
-    --dropdown-shadow: rgba(0, 0, 0, 0.1);
+    --bg-dark-purple: #f0ecf7; /* Light purple for header */
+    --nav-hover: rgba(213, 166, 198, 0.2); /* Soft pink hover */
+    --dropdown-shadow: rgba(0, 0, 0, 0.15);
+    
+    /* Animation */
+    --animation-duration: 0.6s;
+    --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Spacing */
     --container-padding: 2rem;

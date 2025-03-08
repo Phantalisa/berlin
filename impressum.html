@@ -1,50 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN</title>
-    <link rel="stylesheet" href="styles/variables.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <div data-include="components/meta.html"></div>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <a href="index.html" class="logo">
-                <div style="width: 40px; height: 40px; background-color: #000; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold;">MT</div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="pages/maedchentreff.html">Mädchentreff</a></li>
-                <li><a href="pages/u16-wahlen.html">U16 - Wahlen 2025</a></li>
-                <li><a href="pages/aktivitaeten.html">Aktivitäten</a></li>
-                <li class="dropdown">
-                    <a href="#">Projekte</a>
-                    <ul class="dropdown-content">
-                        <li><a href="pages/projekte-self.html">SELF</a></li>
-                        <li><a href="pages/projekte-girls-talk.html">Girls Talk</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="active">Über Uns</a>
-                    <ul class="dropdown-content">
-                        <li><a href="impressum.html" class="active">Impressum</a></li>
-                    </ul>
-                </li>
-                <li><a href="pages/kontakt.html">Kontakt</a></li>
-                <li><a href="pages/frauenberatungsstellen.html">Frauenberatungsstellen</a></li>
-                <li class="search-icon">
-                    <a href="#" aria-label="Suche">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div data-include="components/header.html"></div>
 
-    <main class="content-page">
+    <main class="content-page" data-page-title="Impressum - MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN">
         <h1>Impressum</h1>
         
         <section>
@@ -83,10 +45,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN</p>
-        </div>
-    </footer>
+    <div data-include="components/footer.html"></div>
+    <script src="js/component-loader.js"></script>
 </body>
 </html>
