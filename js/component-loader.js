@@ -6,12 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     includes.forEach(element => {
         const file = element.getAttribute('data-include');
         
-        // Fetch the component file
-        fetch(file)
+        // Fetch the component file with explicit UTF-8 handling
+        fetch(file, {
+            headers: {
+                'Accept': 'text/html; charset=utf-8'
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Failed to load component: ${file}`);
                 }
+                // Explicitly handle as UTF-8 text
                 return response.text();
             })
             .then(html => {
