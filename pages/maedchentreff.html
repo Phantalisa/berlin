@@ -3,58 +3,101 @@
 <head>
     <div data-include="../components/meta.html"></div>
     <link rel="stylesheet" href="../styles/inline-stripped.css">
+    <style>
+        /* Improved layout styles for better performance */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feminist-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+        
+        .star-emblem {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+        
+        .star-emblem:hover {
+            transform: rotate(15deg);
+        }
+    </style>
 </head>
 <body>
     <div data-include="../components/header.html"></div>
 
-    <main class="content-page texture-bg" data-page-title="Mädchentreff - BDP Mädchen*treff Berlin Spandau">
-        <h1 class="page-title">Mädchentreff</h1>
-        
-        <div class="feminist-banner">
-            <img src="../images/flyer-elements/flowers-and-fist.png" alt="Flowers and raised fist" class="fist-image">
-            RAUM FÜR MINTA* UND JUNGE FLINTA*
-        </div>
-        
-        <div class="image-container compact-image-container">
-            <img src="../images/flyer-elements/people.png" alt="Diverse group of young people" title="Mädchen*treff Community" class="people-image">
-        </div>
-        
-        <section>
-            <h2 class="section-heading">Über den Mädchentreff</h2>
-            <p>Der BDP Mädchen*treff in Berlin Spandau ist ein Ort, an dem Mädchen und junge Frauen zwischen 8 und 21 Jahren einen sicheren Raum finden können. Hier können sie ihre Freizeit verbringen, Unterstützung bekommen und neue Fähigkeiten entwickeln.</p>
-            
-            <p>Unser Angebot richtet sich an Mädchen und junge Frauen aus allen kulturellen Hintergründen. Wir fördern das Selbstbewusstsein, die Eigenständigkeit und die Kreativität unserer Besucherinnen.</p>
-        </section>
-        
-        <section>
-            <h2 class="section-heading">Unsere Ziele</h2>
-            <ul class="star-list">
-                <li>★ Stärkung des Selbstbewusstseins und der Eigenständigkeit</li>
-                <li>★ Förderung von Kreativität und sozialen Kompetenzen</li>
-                <li>★ Unterstützung bei schulischen und beruflichen Fragen</li>
-                <li>★ Bereitstellung eines geschützten Raums für Austausch und Freizeit</li>
-                <li>★ Förderung von Toleranz und gegenseitigem Respekt</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2 class="section-heading">Angebote</h2>
-            <p>Unsere Angebote umfassen:</p>
-            <ul class="star-list">
-                <li>★ Hausaufgabenhilfe und Lernunterstützung</li>
-                <li>★ Kreativworkshops (Basteln, Malen, Handarbeit)</li>
-                <li>★ Kochangebote und gemeinsames Essen</li>
-                <li>★ Ausflüge und Ferienaktivitäten</li>
-                <li>★ Beratung zu verschiedenen Themen des Alltags</li>
-                <li>★ Offener Treff zum Spielen und Entspannen</li>
-            </ul>
-        </section>
-        <div class="diagonal-split">
-            <div class="diagonal-split-content">
-                <h2 class="diagonal-split-heading">08.03.2025 - Besucht uns!</h2>
-                <p class="diagonal-split-text">Am internationalen Frauentag öffnen wir unsere Türen besonders weit. Kommt vorbei und feiert mit uns den feministischen Kampftag!</p>
+    <main data-page-title="MÄDCHENTREFF FRIEDRICHSHAIN BERLIN">
+        <section class="hero texture-bg section-container">
+            <div class="hero-content">
+                <h1 class="text-uppercase text-bold">MÄDCHENTREFF</h1>
+                
+                <div class="feminist-banner">
+                    <img src="../images/flyer-elements/pink-star.png" alt="Pink star" class="star-emblem">
+                    RAUM FÜR MINTA* UND JUNGE FLINTA*
+                    <img src="../images/flyer-elements/pink-star.png" alt="Pink star" class="star-emblem">
+                </div>
+                
+                <p>Mädchen/Frauen, intergeschlechtliche, nicht-binäre, trans und agender Personen. Geschlechtlich also alle Menschen, die nicht cis Jungs/Männer sind.</p>
+                
+                <div style="margin-top: 30px; display: flex; align-items: center; gap: 20px;">
+                    <a href="aktivitaeten.html" class="cta-button">Aktivitäten & Angebote</a>
+                    <img src="../images/flyer-elements/flowers-and-fist.png" alt="Flowers and raised fist" style="height: 60px;" class="fist-image">
+                </div>
             </div>
-        </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="../images/flyer-elements/people.png" alt="Diverse group of young people" title="Mädchen*treff Community" style="max-width: 450px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+        </section>
+        
+        <section class="opening-hours texture-bg">
+            <div class="section-container" style="background-color: var(--primary-purple); color: var(--text-white);">
+                <div class="hours-content">
+                    <h2 class="text-uppercase text-bold">Unsere Ziele</h2>
+                    <ul class="star-list">
+                        <li>★ Stärkung des Selbstbewusstseins und der Eigenständigkeit</li>
+                        <li>★ Förderung von Kreativität und sozialen Kompetenzen</li>
+                        <li>★ Unterstützung bei schulischen und beruflichen Fragen</li>
+                        <li>★ Bereitstellung eines geschützten Raums für Austausch und Freizeit</li>
+                        <li>★ Förderung von Toleranz und gegenseitigem Respekt</li>
+                    </ul>
+                    
+                    <h2 class="text-uppercase text-bold" style="margin-top: 2rem;">Angebote</h2>
+                    <ul class="star-list">
+                        <li>★ Hausaufgabenhilfe und Lernunterstützung</li>
+                        <li>★ Kreativworkshops (Basteln, Malen, Handarbeit)</li>
+                        <li>★ Kochangebote und gemeinsames Essen</li>
+                        <li>★ Ausflüge und Ferienaktivitäten</li>
+                        <li>★ Beratung zu verschiedenen Themen des Alltags</li>
+                        <li>★ Offener Treff zum Spielen und Entspannen</li>
+                    </ul>
+                </div>
+                <div class="hours-image">
+                    <div class="event-highlight">
+                        <div class="event-highlight-content">
+                            <div class="event-image-container">
+                                <img src="../images/flyer-elements/flowers-and-fist.png" alt="Community" class="event-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div data-include="../components/footer.html"></div>

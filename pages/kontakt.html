@@ -1,54 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN</title>
-    <link rel="stylesheet" href="../styles/variables.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/inline-stripped.css">
+    <div data-include="../components/meta.html"></div>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <a href="../index.html" class="logo">
-                <div class="logo-circle">MT</div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="maedchentreff.html">Mädchentreff</a></li>
-                <li><a href="u16-wahlen.html">U16 - Wahlen 2025</a></li>
-                <li><a href="aktivitaeten.html">Aktivitäten</a></li>
-                <li class="dropdown">
-                    <a href="#">Projekte</a>
-                    <ul class="dropdown-content">
-                        <li><a href="projekte-self.html">SELF</a></li>
-                        <li><a href="projekte-girls-talk.html">Girls Talk</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Über Uns</a>
-                    <ul class="dropdown-content">
-                        <li><a href="../impressum.html">Impressum</a></li>
-                    </ul>
-                </li>
-                <li><a href="kontakt.html" class="active">Kontakt</a></li>
-                <li><a href="frauenberatungsstellen.html">Frauenberatungsstellen</a></li>
-                <li class="search-icon">
-                    <a href="#" aria-label="Suche">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div data-include="../components/header.html"></div>
 
-    <main class="content-page">
-        <h1>Kontakt</h1>
-        
-        <section class="contact-info">
+    <main data-page-title="Kontakt - BDP Mädchen*treff Berlin Spandau">
+        <section class="texture-bg">
+            <div class="section-container">
+                <h1>Kontakt</h1>
+                
+                <div class="contact-info">
             <h2>Unsere Kontaktdaten</h2>
             
             <div class="contact-grid">
@@ -71,9 +34,12 @@
                     Für Mädchen und junge Frauen im Alter von 14-27 Jahren</p>
                 </div>
             </div>
+                </div>
+            </div>
         </section>
         
-        <section>
+        <section class="texture-bg">
+            <div class="section-container">
             <h2>Anfahrt</h2>
             <div class="directions">
                 <div class="directions-text">
@@ -90,56 +56,17 @@
                 
                 <div class="map-placeholder">
                     <div class="map-container">
-                        [Kartenansicht: Kadinerstraße 9, 10243 Berlin]
+                        <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=13.43%2C52.51%2C13.45%2C52.52&amp;layer=mapnik&amp;marker=52.515%2C13.44" 
+                        style="border: 1px solid #ccc"></iframe>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section>
-            <h2>Anfrage senden</h2>
-            <p>Du hast Fragen oder möchtest dich für eine Aktivität anmelden? Sende uns eine Nachricht!</p>
-            
-            <div class="contact-form">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-Mail *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Telefon (optional)</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Betreff *</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Nachricht *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">Ich habe die <a href="../impressum.html">Datenschutzerklärung</a> gelesen und stimme ihr zu *</label>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit">Nachricht senden</button>
-                    </div>
-                </form>
             </div>
         </section>
         
-        <section>
+        <section class="texture-bg">
+            <div class="section-container">
             <h2>Ansprechpartnerin</h2>
             <p>Bei Fragen und Anregungen steht dir unsere Pädagogin gerne zur Verfügung.</p>
             
@@ -150,13 +77,11 @@
                     <p>E-Mail: tamar.miriam.regev@bdp.org</p>
                 </div>
             </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN</p>
-        </div>
-    </footer>
+    <div data-include="../components/footer.html"></div>
+    <script src="../js/component-loader.js"></script>
 </body>
 </html>

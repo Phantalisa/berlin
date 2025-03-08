@@ -4,7 +4,7 @@
     --dark-purple: #f8f6fc; /* Very light lavender background */
     --accent-pink: #d5a6c6; /* Soft pink */
     --text-dark: #333333; /* Dark charcoal */
-    --text-white: #333333; /* Changed to dark for better contrast with light bg */
+    --text-white: #FFFFFF; /* White text for dark backgrounds */
     --bg-white: #FFFFFF;
     --bg-dark-purple: #f0ecf7; /* Light purple for header */
     --nav-hover: rgba(213, 166, 198, 0.2); /* Soft pink hover */

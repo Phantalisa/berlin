@@ -78,6 +78,14 @@ header {
     padding: 0.5rem;
     position: relative;
     transition: color var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-icon {
+    stroke: currentColor;
+    vertical-align: middle;
 }
 
 .nav-links a::after {
@@ -261,6 +269,20 @@ header {
     justify-content: center;
 }
 
+/* Section Container Styles */
+.section-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Content page styles */
 .content-page {
     max-width: 1400px;
@@ -281,6 +303,16 @@ header {
     transform: translateY(20px);
     animation: fadeInUp var(--animation-duration) var(--animation-timing) forwards;
     animation-delay: calc(var(--section-index, 0) * 0.15s);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-page section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .content-page section:nth-child(2) {
