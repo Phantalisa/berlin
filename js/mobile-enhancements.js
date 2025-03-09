@@ -2,6 +2,17 @@
  * Mobile enhancements for better touch interaction
  */
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('mobile-menu-active');
+            mobileNav.classList.toggle('active');
+        });
+    }
+    
     // Fix touch interactions for dropdown menus in desktop view
     const dropdownLinks = document.querySelectorAll('.dropdown > a');
     

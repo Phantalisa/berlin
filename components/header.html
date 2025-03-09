@@ -97,30 +97,9 @@
             }
         })();
         
-        // Mobile menu functionality
+        // Mobile dropdowns (keeping this part in header.html)
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
             const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-            
-            if (mobileMenuToggle && mobileNav) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenuToggle.classList.toggle('mobile-menu-active');
-                    
-                    // Toggle mobile menu visibility
-                    if (mobileNav.classList.contains('active')) {
-                        mobileNav.classList.remove('active');
-                        setTimeout(function() {
-                            mobileNav.style.display = 'none';
-                        }, 300); // Match transition timing
-                    } else {
-                        mobileNav.style.display = 'block';
-                        setTimeout(function() {
-                            mobileNav.classList.add('active');
-                        }, 10); // Small delay for display to take effect
-                    }
-                });
-            }
             
             // Mobile dropdowns
             mobileDropdownToggles.forEach(function(toggle) {
