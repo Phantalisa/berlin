@@ -1,106 +1,93 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <div data-include="components/meta.html"></div>
-    <link rel="stylesheet" href="styles/hero-enhancements.css">
-    <link rel="stylesheet" href="styles/section-enhancements.css">
-</head>
-<body>
-    <div data-include="components/header.html"></div>
+---
+layout: default
+title: MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN
+---
 
-    <main data-page-title="MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN">
-        <section class="hero texture-bg section-container">
-            <div class="hero-content">
-                <h1 class="text-uppercase text-bold">MÄDCHEN*TREFF<br>FRIEDRICHSHAIN BERLIN</h1>
-                
-                <div class="feminist-banner">
-                    RAUM FÜR MINTA* UND JUNGE FLINTA*
-                </div>
-                
-                <p>Mädchen/Frauen, intergeschlechtliche, nicht-binäre, trans und agender Personen. Geschlechtlich also alle Menschen, die nicht cis Jungs/Männer sind.</p>
-                
-                <p>Wir bieten viele kostenlose <a href="pages/aktivitaeten.html" style="color: var(--accent-pink);">Angebote</a> wie Hausaufgabenhilfe, Kurse und Workshops, Ausflüge und vieles mehr an. Dabei werden wir vom Bezirk finanziell unterstützt.</p>
-                
-                <div class="cta-container">
-                    <a href="pages/aktivitaeten.html" class="cta-button">Aktivitäten & Angebote</a>
-                    <img src="images/flyer-elements/flowers-and-fist.png" alt="Flowers and raised fist" class="fist-image">
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-container">
-                    <img src="images/flyer-elements/people.png" alt="Diverse group of young people" title="Mädchen*treff Community" class="hero-main-image">
-                </div>
-            </div>
-        </section>
+<section class="hero texture-bg section-container">
+    <div class="hero-content">
+        <h1 class="text-uppercase text-bold">MÄDCHEN*TREFF<br>FRIEDRICHSHAIN BERLIN</h1>
+        
+        <div class="feminist-banner">
+            RAUM FÜR MINTA* UND JUNGE FLINTA*
+        </div>
+        
+        <p>Mädchen/Frauen, intergeschlechtliche, nicht-binäre, trans und agender Personen. Geschlechtlich also alle Menschen, die nicht cis Jungs/Männer sind.</p>
+        
+        <p>Wir bieten viele kostenlose <a href="{{ '/aktivitaeten/' | relative_url }}" style="color: var(--accent-pink);">Angebote</a> wie Hausaufgabenhilfe, Kurse und Workshops, Ausflüge und vieles mehr an. Dabei werden wir vom Bezirk finanziell unterstützt.</p>
+        
+        <div class="cta-container">
+            <a href="{{ '/aktivitaeten/' | relative_url }}" class="cta-button">Aktivitäten & Angebote</a>
+            <img src="{{ '/assets/images/flyer-elements/flowers-and-fist.png' | relative_url }}" alt="Flowers and raised fist" class="fist-image">
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="image-container">
+            <img src="{{ '/assets/images/flyer-elements/people.png' | relative_url }}" alt="Diverse group of young people" title="Mädchen*treff Community" class="hero-main-image">
+        </div>
+    </div>
+</section>
 
-        <section class="texture-bg">
-            <div class="section-container" style="background-color: var(--primary-purple); color: var(--text-white);">
-                <div class="hours-content">
-                    <h2 class="text-uppercase text-bold">Unsere Ziele</h2>
-                    <ul class="star-list">
-                        <li>Stärkung des Selbstbewusstseins und der Eigenständigkeit</li>
-                        <li>Förderung von Kreativität und sozialen Kompetenzen</li>
-                        <li>Unterstützung bei schulischen und beruflichen Fragen</li>
-                        <li>Bereitstellung eines geschützten Raums für Austausch und Freizeit</li>
-                        <li>Förderung von Toleranz und gegenseitigem Respekt</li>
-                    </ul>
-                    
-                    <h2 class="text-uppercase text-bold" style="margin-top: 2rem;">Angebote</h2>
-                    <ul class="star-list">
-                        <li>Hausaufgabenhilfe und Lernunterstützung</li>
-                        <li>Kreativworkshops (Basteln, Malen, Handarbeit)</li>
-                        <li>Kochangebote und gemeinsames Essen</li>
-                        <li>Ausflüge und Ferienaktivitäten</li>
-                        <li>Beratung zu verschiedenen Themen des Alltags</li>
-                        <li>Offener Treff zum Spielen und Entspannen</li>
-                    </ul>
-                </div>
-                <div class="hours-image">
-                    <div class="event-highlight">
-                        <div class="event-highlight-content">
-                            <div class="event-image-container">
-                                <img src="images/flyer-elements/flowers-and-fist.png" alt="Community" class="event-image">
-                            </div>
-                        </div>
+<section class="texture-bg">
+    <div class="section-container" style="background-color: var(--primary-purple); color: var(--text-white);">
+        <div class="hours-content">
+            <h2 class="text-uppercase text-bold">Unsere Ziele</h2>
+            <ul class="star-list">
+                <li>Stärkung des Selbstbewusstseins und der Eigenständigkeit</li>
+                <li>Förderung von Kreativität und sozialen Kompetenzen</li>
+                <li>Unterstützung bei schulischen und beruflichen Fragen</li>
+                <li>Bereitstellung eines geschützten Raums für Austausch und Freizeit</li>
+                <li>Förderung von Toleranz und gegenseitigem Respekt</li>
+            </ul>
+            
+            <h2 class="text-uppercase text-bold" style="margin-top: 2rem;">Angebote</h2>
+            <ul class="star-list">
+                <li>Hausaufgabenhilfe und Lernunterstützung</li>
+                <li>Kreativworkshops (Basteln, Malen, Handarbeit)</li>
+                <li>Kochangebote und gemeinsames Essen</li>
+                <li>Ausflüge und Ferienaktivitäten</li>
+                <li>Beratung zu verschiedenen Themen des Alltags</li>
+                <li>Offener Treff zum Spielen und Entspannen</li>
+            </ul>
+        </div>
+        <div class="hours-image">
+            <div class="event-highlight">
+                <div class="event-highlight-content">
+                    <div class="event-image-container">
+                        <img src="{{ '/assets/images/flyer-elements/flowers-and-fist.png' | relative_url }}" alt="Community" class="event-image">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="texture-bg contact-section">
-            <div class="section-container contact-container">
-                <div class="hours-content">
-                    <h2 class="text-uppercase text-bold">Öffnungszeiten</h2>
-                    <ul class="hours-list">
-                        <li>Wochentags | Nachmittags bis Abends</li>
-                        <li>Für junge FLINTA* Personen zwischen 14-27 Jahren</li>
-                    </ul>
-                    
-                    <h3>Adresse</h3>
-                    <p>Phantalisa<br>
-                    Kadinerstraße 9<br>
-                    10243 Berlin</p>
-                    
-                    <h3>Trägerschaft</h3>
-                    <p>BDP Bund Deutscher Pfadfinder*Innen<br>
-                    Landesverband Berlin e.V.<br>
-                    Kaubstr. 9-10 • 10713 Berlin</p>
-                </div>
-                <div class="hours-image">
-                    <div class="event-highlight">
-                        <div class="event-highlight-content">
-                            <div class="event-image-container">
-                                <!-- Star image removed -->
-                            </div>
-                        </div>
+<section class="texture-bg contact-section">
+    <div class="section-container contact-container">
+        <div class="hours-content">
+            <h2 class="text-uppercase text-bold">Öffnungszeiten</h2>
+            <ul class="hours-list">
+                <li>Wochentags | Nachmittags bis Abends</li>
+                <li>Für junge FLINTA* Personen zwischen 14-27 Jahren</li>
+            </ul>
+            
+            <h3>Adresse</h3>
+            <p>Phantalisa<br>
+            Kadinerstraße 9<br>
+            10243 Berlin</p>
+            
+            <h3>Trägerschaft</h3>
+            <p>BDP Bund Deutscher Pfadfinder*Innen<br>
+            Landesverband Berlin e.V.<br>
+            Kaubstr. 9-10 • 10713 Berlin</p>
+        </div>
+        <div class="hours-image">
+            <div class="event-highlight">
+                <div class="event-highlight-content">
+                    <div class="event-image-container">
+                        <!-- Image placeholder -->
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <div data-include="components/footer.html"></div>
-    <script src="js/component-loader.js"></script>
-    <script src="js/mobile-enhancements.js"></script>
-</body>
-</html>
+        </div>
+    </div>
+</section>

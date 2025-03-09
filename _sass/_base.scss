@@ -1,0 +1,108 @@
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-dark;
+  line-height: 1.6;
+  background: linear-gradient(
+    $diagonal-angle, 
+    $bg-color-1 0%, 
+    $bg-color-1 50%, 
+    $bg-color-2 50%, 
+    $bg-color-2 100%
+  );
+  position: relative;
+  overflow-x: hidden;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient($primary-purple 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -2;
+  }
+}
+
+// Text styling classes
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.star {
+  transition: transform 3s ease-in-out;
+  animation: float 6s ease-in-out infinite;
+}
+
+.star-dark {
+  animation-delay: 0s;
+}
+
+.star-pink {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.decorative-curve {
+  animation: fadeIn 1s ease forwards;
+}
+
+// Common image styles
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-speed;
+  
+  &:hover {
+    color: $accent-pink;
+  }
+}

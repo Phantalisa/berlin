@@ -1,0 +1,33 @@
+# Site settings
+title: MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN
+description: Raum für MINTA* und junge FLINTA* in Berlin Friedrichshain
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - README.md
+  - server.py
+  - update-pages.sh
+  - create-commits.sh
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/

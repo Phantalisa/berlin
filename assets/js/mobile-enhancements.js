@@ -5,7 +5,7 @@
 // Function to initialize all mobile enhancements
 function initializeMobileEnhancements() {
     console.log("Initializing mobile enhancements");
-    // Mobile menu toggle functionality - enhanced implementation
+    // Mobile menu toggle functionality
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const body = document.body;
@@ -13,12 +13,8 @@ function initializeMobileEnhancements() {
     if (mobileMenuToggle && mobileNav) {
         console.log("Found mobile menu elements, attaching event listeners");
         
-        // Remove any existing event listeners by cloning and replacing the element
-        const newMobileMenuToggle = mobileMenuToggle.cloneNode(true);
-        mobileMenuToggle.parentNode.replaceChild(newMobileMenuToggle, mobileMenuToggle);
-        
-        // Handle toggle click with the new element
-        newMobileMenuToggle.addEventListener('click', function() {
+        // Handle toggle click
+        mobileMenuToggle.addEventListener('click', function() {
             console.log("Mobile menu clicked");
             this.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
@@ -34,16 +30,11 @@ function initializeMobileEnhancements() {
         // Close menu when ESC key is pressed
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                newMobileMenuToggle.classList.remove('mobile-menu-active');
+                mobileMenuToggle.classList.remove('mobile-menu-active');
                 mobileNav.classList.remove('active');
                 body.style.overflow = '';
             }
         });
-    } else {
-        console.log("Mobile menu elements not found yet, will retry");
-        // Elements not found, retry after a delay
-        setTimeout(initializeMobileEnhancements, 500);
-        return; // Don't proceed with other initializations
     }
 }
 
@@ -51,19 +42,15 @@ function initializeMobileEnhancements() {
 function initializeOtherMobileFeatures() {
     console.log("Initializing other mobile features");
     
-    // Mobile dropdown functionality (moved from header.html)
+    // Mobile dropdown functionality
     const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
     
     if (mobileDropdownToggles.length > 0) {
         console.log("Found mobile dropdown toggles");
         
         // Mobile dropdowns
-        mobileDropdownToggles.forEach(function(toggle) {
-            // Clone and replace to ensure clean event listeners
-            const newToggle = toggle.cloneNode(true);
-            toggle.parentNode.replaceChild(newToggle, toggle);
-            
-            newToggle.addEventListener('click', function(e) {
+        mobileDropdownToggles.forEach(function(toggle) {            
+            toggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log("Mobile dropdown clicked");
                 const parent = this.closest('.mobile-dropdown');
@@ -81,10 +68,6 @@ function initializeOtherMobileFeatures() {
                 parent.classList.toggle('active');
             });
         });
-    } else {
-        console.log("Mobile dropdown toggles not found yet, will retry");
-        setTimeout(initializeOtherMobileFeatures, 500);
-        return;
     }
 
     // Fix touch interactions for dropdown menus in desktop view
@@ -120,20 +103,6 @@ function initializeOtherMobileFeatures() {
             }
         });
     });
-    
-    // Adjust mobile navigation links for subpages
-    if (window.location.pathname.includes('/pages/')) {
-        document.querySelectorAll('#mobile-nav a').forEach(function(link) {
-            const href = link.getAttribute('href');
-            if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('../')) {
-                if (href.startsWith('pages/')) {
-                    link.setAttribute('href', href.replace('pages/', ''));
-                } else if (!href.startsWith('.')) {
-                    link.setAttribute('href', '../' + href);
-                }
-            }
-        });
-    }
     
     // Add detection for screen orientation changes to update layout
     window.addEventListener('orientationchange', function() {
@@ -178,14 +147,6 @@ function initializeOtherMobileFeatures() {
 
 // Initial call on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Delay initialization to let components load first
-    setTimeout(initializeMobileEnhancements, 500);
-    setTimeout(initializeOtherMobileFeatures, 600);
-    
-    // Re-initialize after a longer delay as a fallback
-    setTimeout(function() {
-        console.log("Attempting final initialization");
-        initializeMobileEnhancements();
-        initializeOtherMobileFeatures();
-    }, 2000);
+    initializeMobileEnhancements();
+    initializeOtherMobileFeatures();
 });
