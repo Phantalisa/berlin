@@ -1,0 +1,48 @@
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # Use GitHub Actions' cache to shorten build times and decrease load on servers
+      - uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      
+      # Use GitHub Actions' setup-ruby to configure ruby for faster builds
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # or whatever version you're using
+          bundler-cache: true
+      
+      # Install dependencies & build site
+      - name: Bundle install
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      
+      - name: Jekyll build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      
+      # Deploy the site
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          # The following line might be needed if you're using a custom domain
+          cname: maedchentreff-berlin.de

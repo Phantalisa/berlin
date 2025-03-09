@@ -2,7 +2,7 @@
 title: MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN
 description: Raum für MINTA* und junge FLINTA* in Berlin Friedrichshain
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "https://maedchentreff-berlin.de" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown

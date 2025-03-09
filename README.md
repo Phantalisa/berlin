@@ -1,52 +1,33 @@
-# Mädchen*treff Friedrichshain Berlin
+# MÄDCHEN*TREFF FRIEDRICHSHAIN BERLIN
 
-This is the website for Mädchen*treff Friedrichshain Berlin, a space for MINTA* and young FLINTA* in Berlin.
+This is the website repository for Mädchen*treff Friedrichshain Berlin.
 
-## About This Site
+## Deployment with GitHub Pages
 
-This site uses Jekyll, a static site generator, which makes it easy to maintain and deploy to GitHub Pages.
+This site is configured to deploy automatically to GitHub Pages using GitHub Actions. The configuration:
 
-## Development Setup
+1. Uses Jekyll 4.2.0 (newer than GitHub Pages' built-in Jekyll)
+2. Builds the site with GitHub Actions workflow (see `.github/workflows/jekyll.yml`)
+3. Deploys to GitHub Pages
 
-### Prerequisites
+### How it works
 
-- Ruby (version 2.5.0 or higher)
-- RubyGems
-- GCC and Make
+- The `.github/workflows/jekyll.yml` file contains the GitHub Actions workflow that:
+  - Installs dependencies
+  - Builds the Jekyll site
+  - Deploys to GitHub Pages
+  - Sets up the custom domain
+
+- The `.nojekyll` file tells GitHub not to use its built-in Jekyll processor
+- The `CNAME` file ensures the custom domain (maedchentreff-berlin.de) is maintained
 
 ### Local Development
 
-1. Install Jekyll and Bundler gems:
-   ```
-   gem install jekyll bundler
-   ```
+To run the site locally:
 
-2. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/maedchentreff.git
-   cd maedchentreff
-   ```
+```bash
+bundle install
+bundle exec jekyll serve
+```
 
-3. Install dependencies:
-   ```
-   bundle install
-   ```
-
-4. Run the development server:
-   ```
-   bundle exec jekyll serve
-   ```
-
-5. View the site at http://localhost:4000
-
-## Deployment
-
-This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
-
-## Project Structure
-
-- `_includes/`: Reusable components (header, footer, etc.)
-- `_layouts/`: Page templates
-- `_sass/`: SCSS partials
-- `assets/`: Static assets (images, CSS, JS)
-- `*.html`, `*.md`: Content pages
+Then visit `http://localhost:4000` in your browser.
