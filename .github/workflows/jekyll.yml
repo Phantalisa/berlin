@@ -21,47 +21,52 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
+      # Checkout the repository
+      - uses: actions/checkout@v3
       
-      # Use GitHub Actions' cache to shorten build times and decrease load on servers
-      - uses: actions/cache
+      # Cache Ruby gems to speed up builds
+      - uses: actions/cache@v3
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
       
-      # Use GitHub Actions' setup-ruby to configure ruby for faster builds
+      # Set up Ruby environment
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # or whatever version you're using
+          ruby-version: '3.0' # Adjust this to your Ruby version
           bundler-cache: true
       
-      # Install dependencies & build site
+      # Install dependencies using Bundler
       - name: Bundle install
         run: |
-          bundle config path vendor/bundle
+          bundle config set path 'vendor/bundle'
           bundle install --jobs 4 --retry 3
       
+      # Build the Jekyll site
       - name: Jekyll build
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
       
-      # Upload artifact
+      # Upload the built site as an artifact for deployment
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: ./_site
 
-  # Deployment job
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: github-pages # GitHub Pages environment name
     runs-on: ubuntu-latest
     needs: build
     steps:
+      # Deploy the site to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages
+        uses: actions/deploy-pages@v1
+
+      # Optionally, output the deployed page URL (if needed)
+      - name: Output deployed page URL
+        run: echo "Deployed to URL ${{ steps.deployment.outputs.page_url }}"
