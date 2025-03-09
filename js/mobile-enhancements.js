@@ -1,16 +1,26 @@
 /**
  * Mobile enhancements for better touch interaction
  */
-document.addEventListener('DOMContentLoaded', function() {
+
+// Function to initialize all mobile enhancements
+function initializeMobileEnhancements() {
+    console.log("Initializing mobile enhancements");
     // Mobile menu toggle functionality - enhanced implementation
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const body = document.body;
     
     if (mobileMenuToggle && mobileNav) {
-        // Handle toggle click
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('mobile-menu-active');
+        console.log("Found mobile menu elements, attaching event listeners");
+        
+        // Remove any existing event listeners by cloning and replacing the element
+        const newMobileMenuToggle = mobileMenuToggle.cloneNode(true);
+        mobileMenuToggle.parentNode.replaceChild(newMobileMenuToggle, mobileMenuToggle);
+        
+        // Handle toggle click with the new element
+        newMobileMenuToggle.addEventListener('click', function() {
+            console.log("Mobile menu clicked");
+            this.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
             
             // Prevent body scrolling when menu is open
@@ -24,35 +34,58 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close menu when ESC key is pressed
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                mobileMenuToggle.classList.remove('mobile-menu-active');
+                newMobileMenuToggle.classList.remove('mobile-menu-active');
                 mobileNav.classList.remove('active');
                 body.style.overflow = '';
             }
         });
+    } else {
+        console.log("Mobile menu elements not found yet, will retry");
+        // Elements not found, retry after a delay
+        setTimeout(initializeMobileEnhancements, 500);
+        return; // Don't proceed with other initializations
     }
+}
+
+// Initialize dropdown and other mobile features
+function initializeOtherMobileFeatures() {
+    console.log("Initializing other mobile features");
     
     // Mobile dropdown functionality (moved from header.html)
     const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
     
-    // Mobile dropdowns
-    mobileDropdownToggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const parent = this.closest('.mobile-dropdown');
-            const dropdownContent = parent.querySelector('.mobile-dropdown-content');
+    if (mobileDropdownToggles.length > 0) {
+        console.log("Found mobile dropdown toggles");
+        
+        // Mobile dropdowns
+        mobileDropdownToggles.forEach(function(toggle) {
+            // Clone and replace to ensure clean event listeners
+            const newToggle = toggle.cloneNode(true);
+            toggle.parentNode.replaceChild(newToggle, toggle);
             
-            // Close other dropdowns
-            document.querySelectorAll('.mobile-dropdown-content.active').forEach(function(dropdown) {
-                if (dropdown !== dropdownContent) {
-                    dropdown.classList.remove('active');
-                    dropdown.closest('.mobile-dropdown').classList.remove('active');
-                }
+            newToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log("Mobile dropdown clicked");
+                const parent = this.closest('.mobile-dropdown');
+                const dropdownContent = parent.querySelector('.mobile-dropdown-content');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(function(dropdown) {
+                    if (dropdown !== dropdownContent) {
+                        dropdown.classList.remove('active');
+                        dropdown.closest('.mobile-dropdown').classList.remove('active');
+                    }
+                });
+                
+                dropdownContent.classList.toggle('active');
+                parent.classList.toggle('active');
             });
-            
-            dropdownContent.classList.toggle('active');
-            parent.classList.toggle('active');
         });
-    });
+    } else {
+        console.log("Mobile dropdown toggles not found yet, will retry");
+        setTimeout(initializeOtherMobileFeatures, 500);
+        return;
+    }
 
     // Fix touch interactions for dropdown menus in desktop view
     const dropdownLinks = document.querySelectorAll('.dropdown > a');
@@ -141,4 +174,18 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.head.appendChild(styleElement);
     }
+}
+
+// Initial call on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Delay initialization to let components load first
+    setTimeout(initializeMobileEnhancements, 500);
+    setTimeout(initializeOtherMobileFeatures, 600);
+    
+    // Re-initialize after a longer delay as a fallback
+    setTimeout(function() {
+        console.log("Attempting final initialization");
+        initializeMobileEnhancements();
+        initializeOtherMobileFeatures();
+    }, 2000);
 });
