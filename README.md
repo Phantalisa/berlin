@@ -13,10 +13,9 @@ This site is configured to deploy automatically to GitHub Pages using GitHub Act
 ### How it works
 
 - The `.github/workflows/jekyll.yml` file contains the GitHub Actions workflow that:
-  - Installs dependencies
-  - Builds the Jekyll site
-  - Uses the official GitHub Pages deployment action
-  - Respects repository permissions
+  - Uses latest v4 versions of GitHub Actions (checkout, cache, upload-pages-artifact, deploy-pages)
+  - Installs dependencies and builds the Jekyll site
+  - Uploads and deploys the site with proper permissions
 
 - The `.nojekyll` file tells GitHub not to use its built-in Jekyll processor
 - The `CNAME` file ensures the custom domain (maedchentreff-berlin.de) is maintained
@@ -31,3 +30,4 @@ bundle exec jekyll serve
 ```
 
 Then visit `http://localhost:4000` in your browser.
+.
