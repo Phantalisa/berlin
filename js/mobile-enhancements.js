@@ -2,17 +2,58 @@
  * Mobile enhancements for better touch interaction
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle functionality
+    // Mobile menu toggle functionality - enhanced implementation
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
+    const body = document.body;
     
     if (mobileMenuToggle && mobileNav) {
+        // Handle toggle click
         mobileMenuToggle.addEventListener('click', function() {
             mobileMenuToggle.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
+            
+            // Prevent body scrolling when menu is open
+            if (mobileNav.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when ESC key is pressed
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('mobile-menu-active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
         });
     }
     
+    // Mobile dropdown functionality (moved from header.html)
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    // Mobile dropdowns
+    mobileDropdownToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('.mobile-dropdown');
+            const dropdownContent = parent.querySelector('.mobile-dropdown-content');
+            
+            // Close other dropdowns
+            document.querySelectorAll('.mobile-dropdown-content.active').forEach(function(dropdown) {
+                if (dropdown !== dropdownContent) {
+                    dropdown.classList.remove('active');
+                    dropdown.closest('.mobile-dropdown').classList.remove('active');
+                }
+            });
+            
+            dropdownContent.classList.toggle('active');
+            parent.classList.toggle('active');
+        });
+    });
+
     // Fix touch interactions for dropdown menus in desktop view
     const dropdownLinks = document.querySelectorAll('.dropdown > a');
     
